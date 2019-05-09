@@ -5,6 +5,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using Microsoft.Templates.Core;
 using Microsoft.Templates.Core.Diagnostics;
 using Microsoft.Templates.Core.Gen;
@@ -14,6 +15,7 @@ using Microsoft.Templates.UI.Launcher;
 using Microsoft.Templates.UI.Resources;
 using Microsoft.Templates.UI.Services;
 using Microsoft.Templates.UI.Threading;
+using Microsoft.Templates.Utilities.Services;
 using Microsoft.VisualStudio.TemplateWizard;
 using Microsoft.VisualStudio.Threading;
 
@@ -26,6 +28,8 @@ namespace Microsoft.Templates.UI.VisualStudio
         private GenerationService _generationService = GenerationService.Instance;
 
         public string ProjectName { get; private set; }
+
+        public string SafeProjectName { get; private set; }
 
         public string GenerationOutputPath { get; private set; }
 
@@ -57,7 +61,7 @@ namespace Microsoft.Templates.UI.VisualStudio
             {
                 SetContext();
                 var userSelection = WizardLauncher.Instance.StartAddPage(_shell.GetActiveProjectLanguage(), new VSStyleValuesProvider());
-                var statusBarMessage = string.Format(StringRes.StatusBarNewItemAddPageSuccess, userSelection.Pages[0].name);
+                var statusBarMessage = string.Format(StringRes.StatusBarNewItemAddPageSuccess, userSelection.Pages[0].Name);
                 FinishGeneration(userSelection, statusBarMessage);
             }
             catch (WizardBackoutException)
@@ -77,7 +81,7 @@ namespace Microsoft.Templates.UI.VisualStudio
             {
                 SetContext();
                 var userSelection = WizardLauncher.Instance.StartAddFeature(_shell.GetActiveProjectLanguage(), new VSStyleValuesProvider());
-                var statusBarMessage = string.Format(StringRes.StatusBarNewItemAddFeatureSuccess, userSelection.Features[0].name);
+                var statusBarMessage = string.Format(StringRes.StatusBarNewItemAddFeatureSuccess, userSelection.Features[0].Name);
                 FinishGeneration(userSelection, statusBarMessage);
             }
             catch (WizardBackoutException)
@@ -120,6 +124,7 @@ namespace Microsoft.Templates.UI.VisualStudio
                 {
                     DestinationPath = GenContext.ToolBox.Shell.GetActiveProjectPath();
                     ProjectName = GenContext.ToolBox.Shell.GetActiveProjectName();
+                    SafeProjectName = GenContext.ToolBox.Shell.GetActiveProjectNamespace();
                 }
 
                 GenerationOutputPath = GenContext.GetTempGenerationPath(ProjectName);
@@ -156,9 +161,10 @@ namespace Microsoft.Templates.UI.VisualStudio
             if (GenContext.CurrentLanguage != projectLanguage)
             {
 #if DEBUG
-                GenContext.Bootstrap(new LocalTemplatesSource(), _shell, Platforms.Uwp, projectLanguage);
+                GenContext.Bootstrap(new LocalTemplatesSource(string.Empty), _shell, Platforms.Uwp, projectLanguage);
 #else
-                GenContext.Bootstrap(new RemoteTemplatesSource(Platforms.Uwp, projectLanguage), _shell,  Platforms.Uwp, _shell.GetActiveProjectLanguage());
+                var mstxFilePath = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), "InstalledTemplates");
+                GenContext.Bootstrap(new RemoteTemplatesSource(Platforms.Uwp, projectLanguage, mstxFilePath, new DigitalSignatureService()), _shell,  Platforms.Uwp, _shell.GetActiveProjectLanguage());
 #endif
             }
 

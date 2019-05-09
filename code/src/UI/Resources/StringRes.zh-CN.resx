@@ -358,17 +358,13 @@
     <comment>Project configuration window title</comment>
   </data>
   <data name="ProjectDetailsAboutSectionLink" xml:space="preserve">
-    <value>https://aka.ms/wts</value>
+    <value>Windows Template Studio</value>
     <comment>About section link</comment>
   </data>
   <data name="ProjectDetailsAboutSectionTemplatesVersion" xml:space="preserve">
     <value>模板版本:</value>
     <comment>About section templates version</comment>
-  </data>
-  <data name="ProjectDetailsAboutSectionText" xml:space="preserve">
-    <value>Windows Template Studio</value>
-    <comment>About section text</comment>
-  </data>
+  </data>  
   <data name="ProjectDetailsAboutSectionTitle" xml:space="preserve">
     <value>关于</value>
     <comment>About section title</comment>
@@ -706,5 +702,44 @@
   <data name="ValidatorHasNoCoreProjectMessage" xml:space="preserve">
     <value>Windows Template Studio 现在正在添加核心项目。</value>
     <comment>Has no core project validation error message</comment>
+  </data>
+  <data name="TemplateGroup_Testing" xml:space="preserve">
+    <value>测试</value>
+    <comment>Group header for Testing templates</comment>
+  </data>
+  <data name="NotificationRemoveError_ReadOnly" xml:space="preserve">
+    <value>无法删除 **{0}**，因为它是只读状态。</value>
+    <comment>Remove error message: Template is read only</comment>
+  </data>
+  <data name="TemplateDetailsLayout" xml:space="preserve">
+    <value>布局:</value>
+    <comment>Template details: Layout</comment>
+  </data>
+  <data name="TemplateDetailsFrameworks" xml:space="preserve">
+    <value>Framework:</value>
+    <comment>Template details: Frameworks</comment>
+  </data>
+  <data name="TemplateDetailsLayoutOptional" xml:space="preserve">
+    <value>{0}(可选)</value>
+    <comment>The layout is optional</comment>
+  </data>
+  <data name="ProjectDetailsAboutSectionIssuesLink" xml:space="preserve">
+    <value>报告问题</value>
+    <comment>Project details about section report lssue link</comment>
+  </data>
+  <data name="TemplateGroup_Identity" xml:space="preserve">
+    <value>Identity(选择一项)</value>
+  </data>
+  <data name="ValidatorHasActivationServiceBeforeIdentityMessage" xml:space="preserve">
+    <value>Windows Template Studio 已更改 ActivationService，以将 Identity 功能包括在内。</value>
+    <comment>Has ActivationService before Identity error message</comment>
+  </data>
+  <data name="ValidatorHasActivationServiceBeforeIdentityLink" xml:space="preserve">
+    <value>{0}update-activationservice-for-identity.md</value>
+    <comment>Has ActivationService before Identity link documentation</comment>
+  </data>
+  <data name="ValidatorHasActivationServiceBeforeIdentityLinkMessage" xml:space="preserve">
+    <value>请参阅文档进行更新。</value>
+    <comment>Has ActivationService before Identity link documentation message</comment>
   </data>
 </root>

@@ -358,17 +358,13 @@
     <comment>Project configuration window title</comment>
   </data>
   <data name="ProjectDetailsAboutSectionLink" xml:space="preserve">
-    <value>https://aka.ms/wts</value>
+    <value>Windows Template Studio</value>
     <comment>About section link</comment>
   </data>
   <data name="ProjectDetailsAboutSectionTemplatesVersion" xml:space="preserve">
     <value>Versione modelli:</value>
     <comment>About section templates version</comment>
-  </data>
-  <data name="ProjectDetailsAboutSectionText" xml:space="preserve">
-    <value>Windows Template Studio</value>
-    <comment>About section text</comment>
-  </data>
+  </data>  
   <data name="ProjectDetailsAboutSectionTitle" xml:space="preserve">
     <value>Informazioni su</value>
     <comment>About section title</comment>
@@ -653,7 +649,7 @@
     <comment>Validation error message: Wrong Page Suffix</comment>
   </data>
   <data name="NotificationValidationWarning_ViewSuffix" xml:space="preserve">
-    <value>Da notare che la parola "Page" verrà aggiunta alla fine del nome specificato. [Altre informazioni sulla denominazione.]({0}WTSNaming.md)</value>
+    <value>La parola "Page" verrà aggiunta alla fine del nome specificato. [Altre informazioni sulla denominazione.]({0}WTSNaming.md)</value>
     <comment>Validation error message: View Suffix</comment>
   </data>
   <data name="ValidatorHasOldMvvmLightLocatorMessage" xml:space="preserve">
@@ -706,5 +702,44 @@ Verifica il seguente elenco di pacchetti necessario al codice del progetto e agg
   <data name="ValidatorHasNoCoreProjectMessage" xml:space="preserve">
     <value>Windows Template Studio sta ora aggiungendo un progetto core. </value>
     <comment>Has no core project validation error message</comment>
+  </data>
+  <data name="TemplateGroup_Testing" xml:space="preserve">
+    <value>Testing</value>
+    <comment>Group header for Testing templates</comment>
+  </data>
+  <data name="NotificationRemoveError_ReadOnly" xml:space="preserve">
+    <value>Impossibile rimuovere **{0}** perché è di sola lettura.</value>
+    <comment>Remove error message: Template is read only</comment>
+  </data>
+  <data name="TemplateDetailsLayout" xml:space="preserve">
+    <value>Layout:</value>
+    <comment>Template details: Layout</comment>
+  </data>
+  <data name="TemplateDetailsFrameworks" xml:space="preserve">
+    <value>Framework:</value>
+    <comment>Template details: Frameworks</comment>
+  </data>
+  <data name="TemplateDetailsLayoutOptional" xml:space="preserve">
+    <value>{0} (facoltativo)</value>
+    <comment>The layout is optional</comment>
+  </data>
+  <data name="ProjectDetailsAboutSectionIssuesLink" xml:space="preserve">
+    <value>Segnala problema</value>
+    <comment>Project details about section report lssue link</comment>
+  </data>
+  <data name="TemplateGroup_Identity" xml:space="preserve">
+    <value>Identity (scegli uno)</value>
+  </data>
+  <data name="ValidatorHasActivationServiceBeforeIdentityMessage" xml:space="preserve">
+    <value>Windows Template Studio ha modificato ActivationService in modo da includere le funzionalità di Identity.</value>
+    <comment>Has ActivationService before Identity error message</comment>
+  </data>
+  <data name="ValidatorHasActivationServiceBeforeIdentityLink" xml:space="preserve">
+    <value>{0}update-activationservice-for-identity.md</value>
+    <comment>Has ActivationService before Identity link documentation</comment>
+  </data>
+  <data name="ValidatorHasActivationServiceBeforeIdentityLinkMessage" xml:space="preserve">
+    <value>Guarda la documentazione per l'aggiornamento.</value>
+    <comment>Has ActivationService before Identity link documentation message</comment>
   </data>
 </root>

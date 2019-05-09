@@ -7,16 +7,18 @@ using Windows.ApplicationModel.Activation;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 
-using wts.DefaultProject.Activation;
+using Param_RootNamespace.Activation;
 
-namespace wts.DefaultProject.Services
+namespace Param_RootNamespace.Services
 {
     // For more information on application activation see https://github.com/Microsoft/WindowsTemplateStudio/blob/master/docs/activation.md
     internal class ActivationService
     {
         private readonly App _app;
-        private readonly Lazy<UIElement> _shell;
         private readonly Type _defaultNavItem;
+        private Lazy<UIElement> _shell;
+
+        private object _lastActivationArgs;
 
         public ActivationService(App app, Type defaultNavItem, Lazy<UIElement> shell = null)
         {
@@ -41,6 +43,26 @@ namespace wts.DefaultProject.Services
                 }
             }
 
+            await HandleActivationAsync(activationArgs);
+            _lastActivationArgs = activationArgs;
+
+            if (IsInteractive(activationArgs))
+            {
+                // Ensure the current window is active
+                Window.Current.Activate();
+
+                // Tasks after activation
+                await StartupAsync();
+            }
+        }
+
+        private async Task InitializeAsync()
+        {
+            await Task.CompletedTask;
+        }
+
+        private async Task HandleActivationAsync(object activationArgs)
+        {
             var activationHandler = GetActivationHandlers()
                                                 .FirstOrDefault(h => h.CanHandle(activationArgs));
 
@@ -56,18 +78,7 @@ namespace wts.DefaultProject.Services
                 {
                     await defaultHandler.HandleAsync(activationArgs);
                 }
-
-                // Ensure the current window is active
-                Window.Current.Activate();
-
-                // Tasks after activation
-                await StartupAsync();
             }
-        }
-
-        private async Task InitializeAsync()
-        {
-            await Task.CompletedTask;
         }
 
         private async Task StartupAsync()

@@ -358,17 +358,13 @@
     <comment>Project configuration window title</comment>
   </data>
   <data name="ProjectDetailsAboutSectionLink" xml:space="preserve">
-    <value>https://aka.ms/wts</value>
+    <value>Windows Template Studio</value>
     <comment>About section link</comment>
   </data>
   <data name="ProjectDetailsAboutSectionTemplatesVersion" xml:space="preserve">
     <value>Versión de las plantillas:</value>
     <comment>About section templates version</comment>
-  </data>
-  <data name="ProjectDetailsAboutSectionText" xml:space="preserve">
-    <value>Windows Template Studio</value>
-    <comment>About section text</comment>
-  </data>
+  </data>  
   <data name="ProjectDetailsAboutSectionTitle" xml:space="preserve">
     <value>Acerca de</value>
     <comment>About section title</comment>
@@ -706,5 +702,44 @@ Comprueba la lista siguiente de paquetes que necesitan el código del proyecto y
   <data name="ValidatorHasNoCoreProjectMessage" xml:space="preserve">
     <value>Windows Template Studio está agregando ahora un proyecto principal. </value>
     <comment>Has no core project validation error message</comment>
+  </data>
+  <data name="TemplateGroup_Testing" xml:space="preserve">
+    <value>Probando</value>
+    <comment>Group header for Testing templates</comment>
+  </data>
+  <data name="NotificationRemoveError_ReadOnly" xml:space="preserve">
+    <value>No puedes eliminar **{0}** porque es de solo lectura.</value>
+    <comment>Remove error message: Template is read only</comment>
+  </data>
+  <data name="TemplateDetailsLayout" xml:space="preserve">
+    <value>Diseño:</value>
+    <comment>Template details: Layout</comment>
+  </data>
+  <data name="TemplateDetailsFrameworks" xml:space="preserve">
+    <value>Frameworks:</value>
+    <comment>Template details: Frameworks</comment>
+  </data>
+  <data name="TemplateDetailsLayoutOptional" xml:space="preserve">
+    <value>{0} (opcional)</value>
+    <comment>The layout is optional</comment>
+  </data>
+  <data name="ProjectDetailsAboutSectionIssuesLink" xml:space="preserve">
+    <value>Informar del problema</value>
+    <comment>Project details about section report lssue link</comment>
+  </data>
+  <data name="TemplateGroup_Identity" xml:space="preserve">
+    <value>Identity (elegir una)</value>
+  </data>
+  <data name="ValidatorHasActivationServiceBeforeIdentityMessage" xml:space="preserve">
+    <value>Windows Template Studio ha cambiado el ActivationService para que pueda incluir funciones de Identity.</value>
+    <comment>Has ActivationService before Identity error message</comment>
+  </data>
+  <data name="ValidatorHasActivationServiceBeforeIdentityLink" xml:space="preserve">
+    <value>{0}update-activationservice-for-identity.md</value>
+    <comment>Has ActivationService before Identity link documentation</comment>
+  </data>
+  <data name="ValidatorHasActivationServiceBeforeIdentityLinkMessage" xml:space="preserve">
+    <value>Consulta la documentación que se va actualizar.</value>
+    <comment>Has ActivationService before Identity link documentation message</comment>
   </data>
 </root>

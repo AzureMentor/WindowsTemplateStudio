@@ -2,9 +2,9 @@
 using System.Threading.Tasks;
 using Windows.ApplicationModel.Activation;
 
-using wts.DefaultProject.Services;
+using Param_RootNamespace.Services;
 
-namespace wts.DefaultProject.Activation
+namespace Param_RootNamespace.Activation
 {
     internal class DefaultLaunchActivationHandler : ActivationHandler<LaunchActivatedEventArgs>
     {
@@ -20,7 +20,7 @@ namespace wts.DefaultProject.Activation
         protected override bool CanHandleInternal(LaunchActivatedEventArgs args)
         {
             // None of the ActivationHandlers has handled the app activation
-            return NavigationService.Frame.Content == null;
+            return NavigationService.Frame.Content == null && _navElement != null;
         }
     }
 }
